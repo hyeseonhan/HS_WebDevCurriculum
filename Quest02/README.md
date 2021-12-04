@@ -23,21 +23,28 @@
 ## Checklist
 * CSS를 HTML에 적용하는 세 가지 방법은 무엇일까요?
 </br>‣ 1. External CSS: 외부에서 스타일 시트 파일을 불러오는 방식
-</br>`<head>
- <link rel="stylesheet" type="text/css" href="example.css">
-</head>
-`
-</br>‣ 2. Internal CSS: HTML 파일 내부에서 style을 정하는 방식
-</br>`
-<head>
-    <style>
-        body { background-color: lightyellow; }
-        h2 { color: red; text-decoration: underline; }
-    </style>
-</head>
-`
-</br>‣ 3. Inline CSS: HTML 요소 내부에 style 속성을 사용해서 적용하는 방식
-</br>` <p style="color:gray;"></p>`
+  ```
+  <head>
+   <link rel="stylesheet" type="text/css" href="example.css">
+  </head>
+  ```
+  
+  </br>‣ 2. Internal CSS: HTML 파일 내부에서 style을 정하는 방식
+     ```
+       <head>
+           <style>
+               body { background-color: lightyellow; }
+               h2 { color: red; text-decoration: underline; }
+           </style>
+       </head>
+     ```
+    
+  </br>‣ 3. Inline CSS: HTML 요소 내부에 style 속성을 사용해서 적용하는 방식
+     ```
+      <p style="color:gray;"></p>
+     ```
+   
+   </br>
 
   * 세 가지 방법 각각의 장단점은 무엇일까요?
   </br>‣ 1. External CSS: 장점은 전체적인 스타일을 일관성 있게 유지할 수 있고, 일괄적으로 변경할 수 있어 효율성이 높다. 단점은 외부에서 스타일 시트를 관리해야하므로 번거러움이 있다.
@@ -45,9 +52,33 @@
   </br>‣ 3. Inline CSS: 장점은 직관적으로 사용할 수 있고 단점은 내용과 스타일이 분리되지 않아 스타일 일괄 변경시 효율성이 떨어진다.
 
 * CSS 규칙의 우선순위는 어떻게 결정될까요?
+   1. 속성값 뒤의 !important : 우선선위를 무시하고 !important 붙이면 상위 우선 순위가 되다.
+   2. 태그에 linline으로 스타일 속성 지정
+   3. 선택자가 #id 
+   4. 선택자가 .class 및 pseudo(추상) 클래스(ex. :hover)
+   5. 선택자가 tag 이름
+   6. 상위 객체에 의해 상속된 속성
+
+
 * CSS의 박스모델은 무엇일까요? 박스가 화면에서 차지하는 크기는 어떻게 결정될까요?
+</br>‣ 박스모델: 모든 HTML 요소는 박스 모양으로 구성되며, 이것을 박스 모델이라 부른다.
+</br>‣ 박스모델은 HTML 요소를 padding, border, margin, content로 구분한다.
+  </br>![img_css_boxmodel](https://user-images.githubusercontent.com/68494080/144715820-80d5aedc-c8c6-47fb-b292-307a09b2879b.png)
+
+
 * `float` 속성은 왜 좋지 않을까요?
+</br>‣ float: 한 요소가 주변의 다른 요소와 어떻게 함께 배치할 것인가 결정하는 속성.
+텍스트와 이미지를 정렬할 때 쓰면 편리한 속성이다. overflow 속성이 visible인 상태에서는 부모 요소의 크기가 자동으로 늘어나지 않는다. 요소들의 높이가 제각각이라면 정렬이 깨질 수 있다. float는 요소의 흐름을 관리하는 속성이기 때문에 속성이 다음 요소로 상속된다. 이런 문제 때문에 좋지 않다.
+
+
 * Flexbox(Flexible box)와 CSS Grid의 차이와 장단점은 무엇일까요?
+  * Flexbox: 1차원으로 수평, 수직 영역 중 하나의 방향으로만 레이아웃을 나눌 수 있다.
+    * 모든 방향으로 정렬이 가능하고, reverse도 가능하다. Container로 사용할 경우, 하위 item들을 정렬하기가 매우 수월하다. 단점은 레이아웃을 정의하기에는 직관적이 않다.  
+  * Grid: 2차원으로 수평 수직을 동시에 영역을 나눌 수 있다.
+    *  prototyping할 때 매우 쉽고 효율적으로 간단하게 작성하여 2차원의 레이아웃을 관리할 수 있다. 유일한 단점은 브라우저 호환성이다.   
+  ![1_fIZIpw-jvsUa3yNIpl8zHw](https://user-images.githubusercontent.com/68494080/144716736-f6da4a83-ffed-466e-a65d-df2168b790cc.png)
+
+
 * CSS의 비슷한 요소들을 어떤 식으로 정리할 수 있을까요?
 
 ## Quest
