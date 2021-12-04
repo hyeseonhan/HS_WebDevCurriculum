@@ -23,11 +23,26 @@
 ## Checklist
 * CSS를 HTML에 적용하는 세 가지 방법은 무엇일까요?
 </br>‣ 1. External CSS: 외부에서 스타일 시트 파일을 불러오는 방식
+</br>`<head>
+ <link rel="stylesheet" type="text/css" href="example.css">
+</head>
+`
 </br>‣ 2. Internal CSS: HTML 파일 내부에서 style을 정하는 방식
+</br>`
+<head>
+    <style>
+        body { background-color: lightyellow; }
+        h2 { color: red; text-decoration: underline; }
+    </style>
+</head>
+`
 </br>‣ 3. Inline CSS: HTML 요소 내부에 style 속성을 사용해서 적용하는 방식
+</br>` <p style="color:gray;"></p>`
 
   * 세 가지 방법 각각의 장단점은 무엇일까요?
-  * ‣ 
+  </br>‣ 1. External CSS: 장점은 전체적인 스타일을 일관성 있게 유지할 수 있고, 일괄적으로 변경할 수 있어 효율성이 높다. 단점은 외부에서 스타일 시트를 관리해야하므로 번거러움이 있다.
+  </br>‣ 2. Internal CSS: 장점은 HTML 문서 안에서 여러가지 요소를 한번에 꾸밀 수 있고, 단점은 다른 문서에 적용할 수 없다.
+  </br>‣ 3. Inline CSS: 장점은 직관적으로 사용할 수 있고 단점은 내용과 스타일이 분리되지 않아 스타일 일괄 변경시 효율성이 떨어진다.
 
 * CSS 규칙의 우선순위는 어떻게 결정될까요?
 * CSS의 박스모델은 무엇일까요? 박스가 화면에서 차지하는 크기는 어떻게 결정될까요?
