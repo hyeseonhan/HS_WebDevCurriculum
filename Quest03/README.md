@@ -20,6 +20,8 @@
 
 ## Checklist
 * 자바스크립트는 버전별로 어떻게 변화하고 발전해 왔을까요?
+  *
+
   * 자바스크립트의 버전들을 가리키는 ES5, ES6, ES2016, ES2017 등은 무엇을 이야기할까요?
     * ES = ECMScript : 인터넷 익스플로러와 넷스케이프를 주축으로 호환성을 위해 1997년 부터 시작된 자바스크립트 표준안
     * ES5: use strict, Array Metods, Objext property methods, JSON method 등 도입
@@ -29,9 +31,10 @@
 
   * 자바스크립트의 표준은 어떻게 제정될까요?
     * TC39 위원회에서 회의를 통해서 제정된다. 
-</br>    
+
+
 * 자바스크립트의 문법은 다른 언어들과 비교해 어떤 특징이 있을까요?
-  * 자바스크립트는 객체 기반의 스크립트 언어이고 동적이며 타입을 명시할 필요가 없는 인터프리터(클라이언트의 웹 브라우저에 의해 해석되고 실행) 언어이다. 객체 지향형 프로그래밍과 함수형 프로그래밍을 모두 표현할 수 있다.
+  * 자바스크립트는 객체 기반의 스크립트 언어이고 동적이며 타입을 명시할 필요가 없는 인터프리터(클라이언트의 웹 브라우저에 의해 해석되고 실행) 언어이다. 객체 지향형 프로그래밍과 함수형 프로그래밍을 모두 표현할 수 있다. 
   
   * 자바스크립트에서 반복문을 돌리는 방법은 어떤 것들이 있을까요?
     * for 반복문
@@ -135,14 +138,50 @@
       * 변수 중복 선언 가능하여, 예기치 못한 값을 반환할 수 있다.
       * 유효 범위로 인해 함수 외부에서 선언한 변수는 모두 전역 변수가 된다.
       * 변수 선언문 이전에 변수를 참조하면 항상 undefined를 반환한다.
+      ```
+      var test = "abcd"
+      console.log(test);
+
+      var test = "aaabbb"
+      console.log(test);
+      
+      // output: abcd
+      // output: aaabbb 
+      ```
      
     * let
       * 변수 중복 선언이 불가능하지만, 재할당은 가능하다.
+      ```
+      let name = '한혜선'
+      console.log(name) 
+      // output: 한혜선
+
+      let name = '김희재' // output: Uncaught SyntaxError: Identifier 'name' has already been declared
+
+      name = '김희재'
+      console.log(name) 
+      // output: 김희재
+      ```
     
     * const
-      * 반드시 선언과 초기화를 동시에 해야한다.
+      * 변수 재선언, 재할당 모두 불가능하다. 반드시 선언과 초기화를 동시에 해야한다.(원시값은 재할당이 불가능하지만 객체는 가능)
+      ```
+      // 원시값의 재할당
+      const name = '한혜선'
+      name = '김희재' 
+      // output: Uncaught TypeError: Assignment to constant variable.
 
-[더 알아보기](https://gist.github.com/LeoHeo/7c2a2a6dbcf80becaaa1e61e90091e5d)
+      // 객체의 재할당
+      const name = {
+        eng: '한혜선',
+      }
+      name.eng = '김희재'
+
+      console.log(name) 
+      // output: { eng: "김희재" }
+      ```
+
+      [더 알아보기](https://gist.github.com/LeoHeo/7c2a2a6dbcf80becaaa1e61e90091e5d)
  
 * 자바스크립트의 익명 함수는 무엇인가요?
   * 자바스크립트의 Arrow function은 무엇일까요?
