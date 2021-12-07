@@ -31,16 +31,119 @@
     * TC39 위원회에서 회의를 통해서 제정된다. 
 </br>    
 * 자바스크립트의 문법은 다른 언어들과 비교해 어떤 특징이 있을까요?
-  * 
+  * 자바스크립트는 객체 기반의 스크립트 언어이고 동적이며 타입을 명시할 필요가 없는 인터프리터(클라이언트의 웹 브라우저에 의해 해석되고 실행) 언어이다. 객체 지향형 프로그래밍과 함수형 프로그래밍을 모두 표현할 수 있다.
   
   * 자바스크립트에서 반복문을 돌리는 방법은 어떤 것들이 있을까요?
-    * 
+    * for 반복문
+    ```
+    for (초기화식; 종료 조건; 증감식) {
+      // 실행할 코드
+    }
+    ```
+    
+    * while 반복문
+    ```
+    초기화식
+    while (종료 조건) {
+      // 실행할 코드
+
+      증감식
+    }
+    ```
+
+    * do ...while 반복문
+    ```
+    초기화식
+    do {
+      // 실행할 코드
+
+      증감식
+    } while (종료 조건)
+    ```
 
 * 자바스크립트를 통해 DOM 객체에 CSS Class를 주거나 없애려면 어떻게 해야 하나요?
   * 
+  
   * IE9나 그 이전의 옛날 브라우저들에서는 어떻게 해야 하나요?
+    * 호환성 보기를 선택한 경우 작동이 오히려 안되는데 메타태그를 이용해 최신버전 브라우저로 세팅한다.
+    ```
+    <head>
+    <!-- Quirks Mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=5" />
+
+    <!-- IE7 Standards 모드 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+    <!-- IE8 Standards 모드 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+    <!-- 가장 최신 버젼 IE의 Standards 모드 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- DTD가 없는 페이지는 여전히 Quirks Mode로, DTD가 있는 페이지는 IE 7 표준 모드로 렌더링 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    </haed>
+    ```
+    
 * 자바스크립트의 변수가 유효한 범위는 어떻게 결정되나요?
+  * 변수(variable): 데이터를 저장할 때 쓰이는 사용자가 지정한 이름을 사용하는 저장소 
+  * 변수의 유효 범위(variable scope): 해당 변수가 접근할 수 있는 변수, 객체 그리고 함수의 집합을 의미한다. 유효 범위에 따라 다음과 같이 구분되다.
+    1. 전역변수 (global variable)  
+       전역변수는 함수의 외부에서 선언된 변수이다. 코드의 어느 영역에서나 접근할 수 있으며, 웹 페이지가 닫혀야만 메모리에서 사라진다.
+       ```
+       var vscope = 'global';
+       function fscope(){
+           console.log(vscope);
+       }
+       fscope();
+       
+       // output: global
+       ```
+       
+    2. 지역변수(local variable)
+       지역변수는 함수 내에서 선언된 변수이다. 변수가 선언된 함수 내에서만 유효하면, 함수가 종료되면 메모리에서 사라진다. 
+       ```
+       var vscope = 'global';
+       function fscope(){
+           var vscope = 'local';
+           console.log('함수안 '+vscope);
+       }
+       fscope();
+       console.log('함수밖 '+vscope);
+       
+       // output: 함수안 local
+       // output: 함수밖 global
+       ```
+       
+       * var를 사용하지 않은 지역변수는 전역변수가 된다.
+       ```
+       var vscope = 'global';
+       function fscope(){
+           vscope = 'local';
+           console.log('함수안'+vscope);
+       }
+       fscope();
+       console.log('함수밖'+vscope);
+       
+       // output: 함수안 local
+       // output: 함수밖 local
+       ```
+
+  
   * `var`과 `let`으로 변수를 정의하는 방법들은 어떻게 다르게 동작하나요?
+    * var 
+      * 변수 중복 선언 가능하여, 예기치 못한 값을 반환할 수 있다.
+      * 유효 범위로 인해 함수 외부에서 선언한 변수는 모두 전역 변수가 된다.
+      * 변수 선언문 이전에 변수를 참조하면 항상 undefined를 반환한다.
+     
+    * let
+      * 변수 중복 선언이 불가능하지만, 재할당은 가능하다.
+    
+    * const
+      * 반드시 선언과 초기화를 동시에 해야한다.
+
+[더 알아보기](https://gist.github.com/LeoHeo/7c2a2a6dbcf80becaaa1e61e90091e5d)
+ 
 * 자바스크립트의 익명 함수는 무엇인가요?
   * 자바스크립트의 Arrow function은 무엇일까요?
 
