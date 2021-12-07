@@ -184,6 +184,29 @@
       [더 알아보기](https://gist.github.com/LeoHeo/7c2a2a6dbcf80becaaa1e61e90091e5d)
  
 * 자바스크립트의 익명 함수는 무엇인가요?
+  * 익명 함수란 변수에 함수의 코드를 저장하는 대신 함수명을 사용하지 않는다. 변수명을 마치 함수명처럼 사용해서 함수를 호출하거나 변수값을 이동시키는데 사용할 수 있다.
+   ```
+   // 일반 함수 = 함수 선언식
+   function 함수명(){
+     함수 로직
+   }
+   
+   function SayHello(){
+     console.log("hello!");
+   }
+   SayHello()
+   // output: hello!
+   
+   
+   // 익명 함수 
+   const sayHello = function() {
+     console.log("hello!");
+   }
+   SayHello()
+   // output: hello!
+   
+   ```
+
   * 자바스크립트의 Arrow function은 무엇일까요?
 
 ## Quest
