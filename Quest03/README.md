@@ -65,7 +65,24 @@
     ```
 
 * 자바스크립트를 통해 DOM 객체에 CSS Class를 주거나 없애려면 어떻게 해야 하나요?
-  * 
+  * CSS 선택자 id, class, tag 가 있음
+    * DOM 요소를 id 선택자로 접근하는 함수 - getElementById()
+    * DOM 요소를 class 값으로 찾아내는 함수 - getElementsByClassName()
+    * DOM 요소를 태그 이름으로 찾아내는 함수 - getElementsByTagName()
+  * `classList` 속성을 사용하여 추가하거나 제거할 수 있다.
+    ```
+    const element = document.getElementById("ele")
+    
+    // class 추가
+    function add(event){
+      element.classList.add('class1');
+    }
+    
+    // class 제거
+    function remove(event){
+      element.classList.remove('class1');
+    }
+    ```
   
   * IE9나 그 이전의 옛날 브라우저들에서는 어떻게 해야 하나요?
     * 호환성 보기를 선택한 경우 작동이 오히려 안되는데 메타태그를 이용해 최신버전 브라우저로 세팅한다.
@@ -185,6 +202,7 @@
  
 * 자바스크립트의 익명 함수는 무엇인가요?
   * 익명 함수란 변수에 함수의 코드를 저장하는 대신 함수명을 사용하지 않는다. 변수명을 마치 함수명처럼 사용해서 함수를 호출하거나 변수값을 이동시키는데 사용할 수 있다.
+  * 단점은 호이스팅이 불가하다. 호이스팅: 함수 선언 보다 함수 호출이 윗 줄에 위치해도 실행되는 기능
    ```
    // 일반 함수 = 함수 선언식
    function 함수명(){
