@@ -63,7 +63,7 @@
       증감식
     } while (종료 조건)
     ```
-
+  * DOM: 객체환 된, 또는 객체로 구조화된 문서. 하나의 application는 매우 다양하게 얽힌 객체(object)들로 구성이 되어있으며, 이러한 object들이 구성한 집합을 Document라 한다.
 * 자바스크립트를 통해 DOM 객체에 CSS Class를 주거나 없애려면 어떻게 해야 하나요?
   * CSS 선택자 id, class, tag 가 있음
     * DOM 요소를 id 선택자로 접근하는 함수 - getElementById()
@@ -226,6 +226,38 @@
    ```
 
   * 자바스크립트의 Arrow function은 무엇일까요?
+    * 기존 함수 표현식에서 function을 삭제하고 인자를 받는 매개변수의 () 와 {} 사이에 화살표를 넣어주면 화살표 함수라 부른다.
+      * 화살표 함수는 기본적으로 익명 함수이기 때문에 식으로 변수에 할당해서 사용이 가능하지만, 일반 함수처럼 function 키워드를 이용해 이름을 정의 할 수 없다는 점이 화살표 함수와 함수의 선언 방식에 가장 큰 차이점이다. 화살표 함수와 일반 함수에는 우위가 없으며 상황에 따라 필요한 문법을 이용해 사용하는 것이 좋다. 
+    ```
+    function example(){
+     // 일반함수
+    }
+    
+    
+    let arrowFunciotn = () => {
+     // 화살표 함수
+    }
+    ```
+     * 함수의 body 표현식이 한 line 이라면 중괄호{} 와 return을 생략할 수 있다.
+       ```
+       let arrow = () => {
+       return "Hello World!"
+       }
+       arrow()
+
+
+       let arrow = () => Hello World!
+       ```
+     * 함수의 매개변수가 하나라면 () 를 생략할 수 있다.
+       ```
+       let double = (n) => {
+        return n * 2
+       }
+       
+       let double = n => n * 2 
+       
+       // output: double(2) = 4
+       ```
 
 ## Quest
 * (Quest 03-1) 초보 프로그래머의 영원한 친구, 별찍기 프로그램입니다.
